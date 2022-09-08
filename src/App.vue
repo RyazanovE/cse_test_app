@@ -1,6 +1,6 @@
 <template>
 
-<div class="bg-red-500 h-5 w-5 rot">ddfsdf</div>
+<div class="bg-red-500 h-8 w-5 rot">ddfsdf</div>
 
 </template>
 
@@ -10,6 +10,7 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss">
+	@import "@/index.scss"
 
 </style>
