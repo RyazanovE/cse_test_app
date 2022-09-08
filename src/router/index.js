@@ -2,10 +2,13 @@ import {
 	createRouter,
 	createWebHashHistory
 } from 'vue-router'
+import { USERS_ROUTE } from '@/mocks/routes/routes'
+import UsersPage from '@/pages/users/UsersPage.vue'
 
 const routes = [{
-		path: '/',
-		component: require('@/pages/main/MainPage.vue').default
+		path: USERS_ROUTE,
+		component: UsersPage
+		
 	},
 	{
 		path: '/:catchAll(.*)',
