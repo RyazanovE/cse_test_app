@@ -10,7 +10,7 @@ npm run test
 - Vue Router
 - Tailwind
 - Webpack
-- @hennge/vue3-pagination(Пагинация)
+- @hennge/vue3-pagination
 - jest + vue-testing-library/vue-test-utils
 
 ### Node Version
