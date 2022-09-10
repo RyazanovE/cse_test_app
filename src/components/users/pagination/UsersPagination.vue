@@ -21,9 +21,9 @@ export default {
   components: { VPagination },
   setup(props, {}) {
     const store = useStore();
-    const page = computed(() => store.state.pagination.page);
+    const page = ref(1);
 
-    watch(page, () => store.dispatch("getUsers"));
+    watch((page), () => store.dispatch("getUsers"));
     onUnmounted(() => store.commit("RESET_USERS_PAGINATION"));
 
     const paginationHandler = (e) => store.commit("SET_USERS_PAGINATION", { page: e });
