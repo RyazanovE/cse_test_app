@@ -21,13 +21,10 @@ export default {
 
   setup() {
     const store = useStore();
-
     const searchQuery = ref("");
 
-    const searchSumbitHandler = () => {
-      store.commit("SET_USERS_PAGINATION", { q: searchQuery.value });
-      store.dispatch("getUsers");
-    };
+    const searchSumbitHandler = () => store.commit("SET_USERS_PAGINATION", { q: searchQuery.value });
+    
 
     return {
       searchSumbitHandler,

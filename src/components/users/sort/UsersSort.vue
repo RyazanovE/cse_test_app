@@ -30,13 +30,10 @@ export default {
     const sort = ref("");
     const order = ref("asc");
 
-    watch(([sort, order]), () => {
-      store.commit("SET_USERS_PAGINATION", { sort, order });
-      store.dispatch("getUsers");
-    });
+    watch(([sort, order]), () => store.commit("SET_USERS_PAGINATION", { sort, order }));
 
     const sortSwapClickHandler = () => order.value = (order.value === "asc") ? "desc" : "asc"
-      
+
 
     return {
       sortSwapClickHandler,
