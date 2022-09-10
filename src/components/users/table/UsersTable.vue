@@ -27,7 +27,6 @@
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
 import UsersTableRow from "./row/UsersTableRow.vue";
-import { onMounted } from '@vue/runtime-core';
 
 export default {
   setup(props) {

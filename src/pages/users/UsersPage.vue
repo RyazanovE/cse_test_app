@@ -11,7 +11,7 @@ import UsersTable from "@/components/users/table/UsersTable.vue";
 import UsersPagination from "@/components/users/pagination/UsersPagination.vue";
 import UsersSort from "../../components/users/sort/UsersSort.vue";
 import { useStore } from "vuex";
-import { onMounted, onUnmounted, watch } from "@vue/runtime-core";
+import { watch } from "@vue/runtime-core";
 import { computed } from "@vue/reactivity";
 
 export default {
@@ -24,7 +24,6 @@ export default {
     const order = computed(() => store.state.pagination.order);
 
     watch([q, page, sort, order], () => store.dispatch("getUsers"));
-
 
     return {};
   },
