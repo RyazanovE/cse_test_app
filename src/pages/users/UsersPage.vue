@@ -25,7 +25,6 @@ export default {
 
     watch([q, page, sort, order], () => store.dispatch("getUsers"));
 
-    onUnmounted(() => store.commit("RESET_USERS_PAGINATION"));
 
     return {};
   },
