@@ -20,7 +20,7 @@ export default {
   components: { VPagination },
   setup(props, {}) {
     const store = useStore();
-    const page = ref(1);
+    const page = ref(store.state.pagination.page);
 
     const paginationHandler = (e) => store.commit("SET_USERS_PAGINATION", { page: e });
 
