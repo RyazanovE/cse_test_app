@@ -34,3 +34,4 @@ export const RESET_USERS_PAGINATION = (state) => {
 		pages: 0,
 	}
 }
+
