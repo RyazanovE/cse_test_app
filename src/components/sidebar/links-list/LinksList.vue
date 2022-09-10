@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <router-link v-for="({ path, label }, i) in navLinks" :key="i" :to="path" class="link ">
+    <router-link  v-for="({ path, label }, i) in navLinks" :key="i" :to="path" class="link ">
       {{ label }}
     </router-link>
   </ul>

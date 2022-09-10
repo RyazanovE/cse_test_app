@@ -9,6 +9,9 @@ module.exports = {
 		"^.+\\.vue$": "@vue/vue3-jest"
 	},
 	"moduleNameMapper": {
-		"^@/(.*)$": "<rootDir>/src/$1"
+		"^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+		"^@/(.*)$": "<rootDir>/src/$1",
+
+		
 	}
 }

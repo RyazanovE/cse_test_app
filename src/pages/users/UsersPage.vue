@@ -1,5 +1,5 @@
 <template>
-  <section class="p-base flex flex-col gap-6 items-center">
+  <section data-testid="users-section" class="p-base flex flex-col gap-6 items-center">
     <users-sort />
     <users-pagination />
     <users-table />
