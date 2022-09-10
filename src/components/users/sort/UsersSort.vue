@@ -27,8 +27,8 @@ export default {
   components: { SwapSvg },
   setup() {
     const store = useStore();
-    const sort = ref("");
-    const order = ref("asc");
+    const sort = ref(store.state.pagination.sort);
+    const order = ref(store.state.pagination.order);
 
     watch(([sort, order]), () => store.commit("SET_USERS_PAGINATION", { sort, order }));
 

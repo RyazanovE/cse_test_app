@@ -26,7 +26,7 @@ export const SET_USERS_PAGINATION = (state, pagination) => {
 }
 export const RESET_USERS_PAGINATION = (state) => {
 	state.pagination = {
-		order: "",
+		order: "asc",
 		sort: "",
 		per_page: 10,
 		page: 1,
