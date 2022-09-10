@@ -1,11 +1,12 @@
 <template>
-  <header class="shadow-header p-base">
-    <form @submit.prevent="searchSumbitHandler" class="flex items-center justify-center h-full">
+  <header class="shadow-header flex flex-col items-center justify-center">
+    <links-list class="md:hidden self-start"/>
+    <form @submit.prevent="searchSumbitHandler" class="flex items-center justify-center my-base h-full w-full p-6">
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Введите логин пользователя"
-        class="border-2 border-r-0 border-orange outline-none w-1/2 h-12 px-3"
+        class="border-2 border-r-0 border-orange outline-none md:w-1/2 h-12 px-3 w-full"
       />
       <orange-button class="h-12" type="submit">Найти</orange-button>
     </form>
@@ -16,15 +17,16 @@
 import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import OrangeButton from "../../shared/ui/buttons/orange/OrangeButton.vue";
+import LinksList from "../sidebar/links-list/LinksList.vue";
 export default {
-  components: { OrangeButton },
+  components: { OrangeButton, LinksList },
 
   setup() {
     const store = useStore();
     const searchQuery = ref("");
 
-    const searchSumbitHandler = () => store.commit("SET_USERS_PAGINATION", { q: searchQuery.value });
-    
+    const searchSumbitHandler = () =>
+      store.commit("SET_USERS_PAGINATION", { q: searchQuery.value });
 
     return {
       searchSumbitHandler,

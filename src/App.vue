@@ -1,9 +1,9 @@
 <template>
   <div class="grid grid-cols-6 min-h-screen">
-    <sidebar class="col-span-1" />
-    <div class="col-span-5 flex flex-col">
+    <sidebar class="col-span-1 hidden md:flex" />
+    <div class="col-span-6 md:col-span-5 flex flex-col">
       <app-header class=" " />
-        <router-view />
+      <router-view />
     </div>
   </div>
 </template>
