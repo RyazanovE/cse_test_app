@@ -11,8 +11,11 @@
 <script>
 import Sidebar from "@/components/sidebar/Sidebar.vue";
 import AppHeader from "@/components/app-header/AppHeader.vue";
+import { useRouter } from "vue-router";
 export default {
   components: { Sidebar, AppHeader },
+  setup() {
+  },
 };
 </script>
 

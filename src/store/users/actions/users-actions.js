@@ -8,7 +8,7 @@ export const getUsers = ({commit, state}) => {
 	api.get(USERS_URL, {params})
 	.then(r => {
 		commit("USERS_SUCCESS", r?.data?.items ?? [])
-		commit("SET_USERS_PAGINATION", {pages: r?.data?.total_count ?? 0})
+		commit("SET_USERS_PAGINATION", {pages: Math.ceil(r?.data?.total_count/params?.per_page) ?? 0})
 	})
 	.catch(e => commit("USERS_ERROR", e?.message ?? "Ошибка загрузки пользователей"))
 }
