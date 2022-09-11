@@ -47,6 +47,7 @@
     "jest-environment-jsdom": "^29.0.2",
     "jest-transform-stub": "^2.0.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "msw": "^0.47.1",
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
     "sass": "^1.54.9",

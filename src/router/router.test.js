@@ -50,8 +50,6 @@ describe("router tests", () => {
 			}
 			const {
 				getAllByText,
-				getByTestId,
-				findAllByText,
 
 			} = render(App, {
 				global: {
@@ -61,7 +59,7 @@ describe("router tests", () => {
 
 
 			await fireEvent.click(getAllByText("Пользователи")[0])
-	
+
 			await waitFor(() => {
 				expect(screen.getByTestId('users-section')).toBeInTheDocument()
 			})
@@ -75,7 +73,6 @@ describe("router tests", () => {
 				isError: false,
 			}
 			const {
-				getByTestId,
 				getAllByTestId
 			} = render(App, {
 				global: {
@@ -92,33 +89,33 @@ describe("router tests", () => {
 			})
 		})
 
-		it('navigates from user page back to list', async () => {
-			const options = {
-				data: fiveUsersData,
-				isLoading: false,
-				isError: false,
-			}
-			const {
-				getByTestId,
-				getAllByTestId,
-				getByText
-			} = render(App, {
-				global: {
-					plugins: [router, createVuexStore(options)],
-				},
-			})
-			router.push("/users/" + fiveUsersData[0].id)
-			await router.isReady()
-
-			await waitFor(() => {
-			expect(screen.getByText('Публичных репозиториев:')).toBeInTheDocument()
-			})
-			
-			await fireEvent.click(getByText("Назад"))
-
-			await waitFor(() => {
-				expect(screen.getByTestId('users-section')).toBeInTheDocument()
-			})
+	it('navigates from user page back to list', async () => {
+		const options = {
+			data: fiveUsersData,
+			isLoading: false,
+			isError: false,
+		}
+		const {
+			getByTestId,
+			getAllByTestId,
+			getByText
+		} = render(App, {
+			global: {
+				plugins: [router, createVuexStore(options)],
+			},
 		})
+		router.push("/users/" + fiveUsersData[0].id)
+		await router.isReady()
+
+		await waitFor(() => {
+			expect(screen.getByText('Публичных репозиториев:')).toBeInTheDocument()
+		})
+
+		await fireEvent.click(getByText("Назад"))
+
+		await waitFor(() => {
+			expect(screen.getByTestId('users-section')).toBeInTheDocument()
+		})
+	})
 
 })
