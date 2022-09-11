@@ -5,7 +5,7 @@
         class="child:text-start child:py-3 bg-orange last:child:rounded-r-md first:child:rounded-l-md text-white child:pl-3"
       >
         <th>Логин</th>
-        <th>score</th>
+        <th>Аватар</th>
       </tr>
     </thead>
     <tbody>

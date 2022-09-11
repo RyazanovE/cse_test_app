@@ -1,7 +1,7 @@
 <template>
   <tr
     @click="rowClickHandler"
-    class="child:hover:bg-black/20 child:cursor-pointer child:transition-colors child:duration-100 "
+    class="child:hover:bg-black/20 child:cursor-pointer child:transition-colors child:duration-100 child:p-3 last:child:rounded-r-md first:child:rounded-l-md"
   >
     <td>{{ user?.login }}</td>
     <td><img :src="user?.avatar_url" alt="avatar" class="w-20 h-20" /></td>
