@@ -20,7 +20,7 @@ const createVuexStore = (users) =>
 	})
 
 
-describe('users table test', () => {
+describe.skip('users table test', () => {
 	it("has 5 users to be shown", async () => {
 		const options = {
 			data: fiveUsersData,

@@ -532,7 +532,7 @@ export const twentyUsersData = [
 ]
 
 
-export const luckySearch = {
+export const luckyFirstPage = {
 	"total_count": 12,
 	"incomplete_results": false,
 	"items": [
@@ -745,7 +745,60 @@ export const luckySearch = {
 		"type": "User",
 		"site_admin": false,
 		"score": 1.0
-	  }
+	  },
+	
 	]
   }
 	
+
+
+ export const luckySecondPage =  {
+	"total_count": 12,
+	"incomplete_results": false,
+	"items": [
+	  {
+		"login": "lucky77771985",
+		"id": 54192134,
+		"node_id": "MDEyOk9yZ2FuaXphdGlvbjU0MTkyMTM0",
+		"avatar_url": "https://avatars.githubusercontent.com/u/54192134?v=4",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/lucky77771985",
+		"html_url": "https://github.com/lucky77771985",
+		"followers_url": "https://api.github.com/users/lucky77771985/followers",
+		"following_url": "https://api.github.com/users/lucky77771985/following{/other_user}",
+		"gists_url": "https://api.github.com/users/lucky77771985/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/lucky77771985/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/lucky77771985/subscriptions",
+		"organizations_url": "https://api.github.com/users/lucky77771985/orgs",
+		"repos_url": "https://api.github.com/users/lucky77771985/repos",
+		"events_url": "https://api.github.com/users/lucky77771985/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/lucky77771985/received_events",
+		"type": "Organization",
+		"site_admin": false,
+		"score": 1.0
+	  },
+	  {
+		"login": "Lucky7777777777",
+		"id": 102858368,
+		"node_id": "U_kgDOBiF-gA",
+		"avatar_url": "https://avatars.githubusercontent.com/u/102858368?v=4",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/Lucky7777777777",
+		"html_url": "https://github.com/Lucky7777777777",
+		"followers_url": "https://api.github.com/users/Lucky7777777777/followers",
+		"following_url": "https://api.github.com/users/Lucky7777777777/following{/other_user}",
+		"gists_url": "https://api.github.com/users/Lucky7777777777/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/Lucky7777777777/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/Lucky7777777777/subscriptions",
+		"organizations_url": "https://api.github.com/users/Lucky7777777777/orgs",
+		"repos_url": "https://api.github.com/users/Lucky7777777777/repos",
+		"events_url": "https://api.github.com/users/Lucky7777777777/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/Lucky7777777777/received_events",
+		"type": "User",
+		"site_admin": false,
+		"score": 1.0
+	  }
+	]
+  }
+  
+
