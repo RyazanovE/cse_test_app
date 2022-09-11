@@ -16,7 +16,10 @@ import {
 	createStore
 } from 'vuex'
 import router from '@/router'
-
+import {
+	mutations,
+	actions
+} from '../store'
 
 
 const createVuexStore = (users) => createStore({
@@ -31,8 +34,8 @@ const createVuexStore = (users) => createStore({
 			pages: 0,
 		},
 	},
-	actions: store.actions,
-	mutations: store.mutations
+	actions,
+	mutations
 
 
 })

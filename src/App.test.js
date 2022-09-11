@@ -21,7 +21,10 @@ import {
 import App from "./App.vue"
 import router from "@/router"
 import store from "@/store"
-
+import {
+	mutations,
+	actions
+} from './store'
 
 
 const url = "https://api.github.com/search/users"
@@ -49,8 +52,9 @@ const server = setupServer(
 
 
 const createVuexStore = (newState = null) => createStore({
-		mutations: store.mutations,
-		actions: store.actions,
+
+		mutations,
+		actions,
 		state: newState ?? store.state
 	},
 
@@ -90,7 +94,7 @@ describe('test app search/navigation', () => {
 		})
 	})
 
-	it.skip("navigates from 1st to 2nd page showing correct items", async () => {
+	it("navigates from 1st to 2nd page showing correct items", async () => {
 		const state = {
 			users: {
 				isLoading: false,

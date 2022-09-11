@@ -10,17 +10,18 @@ import {
 import {
 	fiveUsersData,
 } from "@/tests/unit/users/mocks/usersData.js"
-
+import { actions, mutations } from '@/store'
 
 const createVuexStore = (users) =>
 	createStore({
 		state: {
 			users
-		}
+		},
+		actions, mutations
 	})
 
 
-describe.skip('users table test', () => {
+describe('users table test', () => {
 	it("has 5 users to be shown", async () => {
 		const options = {
 			data: fiveUsersData,

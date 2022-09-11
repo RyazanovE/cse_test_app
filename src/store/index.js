@@ -29,3 +29,8 @@ const store = createStore({
 })
 
 export default store
+
+export {
+  mutations,
+  actions
+}
