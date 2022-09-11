@@ -96,8 +96,7 @@ describe("router tests", () => {
 			isError: false,
 		}
 		const {
-			getByTestId,
-			getAllByTestId,
+	
 			getByText
 		} = render(App, {
 			global: {

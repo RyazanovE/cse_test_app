@@ -7,6 +7,7 @@
       class="flex items-center justify-center my-base h-full w-full px-base"
     >
       <input
+        data-testid="search-input"
         v-model="searchQuery"
         type="text"
         placeholder="Введите логин пользователя"

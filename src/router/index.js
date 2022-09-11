@@ -8,10 +8,14 @@ import {
 import UsersPage from '@/pages/users/UsersPage.vue'
 import UserPage from '../pages/users/id/UserPage.vue'
 
-export const routes = [
-	{
+export const routes = [{
 		path: USERS_ROUTE,
 		component: UsersPage
+
+	},
+	{
+		path: "/",
+		redirect: USERS_ROUTE
 
 	},
 	{
