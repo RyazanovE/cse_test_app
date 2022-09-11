@@ -12,7 +12,7 @@
       <template v-if="!users.isLoading">
         <users-table-row  data-testid="table-row" data-test="table-row" v-for="user in users.data" :key="user?.id" :user="user" />
       </template>
-      <tr data-test="error-row" v-else-if="users.isError">
+      <tr data-test="error-row" data-testid="error-row" v-else-if="users.isError">
         <td colspan="2">Ошибка загрузки пользователей</td>
       </tr>
       <div  data-test="loading-row" v-else>Loading</div>

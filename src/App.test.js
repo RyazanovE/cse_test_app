@@ -3,6 +3,7 @@ import {
 	fireEvent,
 	waitFor,
 
+
 } from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import {
@@ -30,25 +31,7 @@ import {
 const url = "https://api.github.com/search/users"
 const searchText = "lucky7777"
 
-const server = setupServer(
-	rest.get(url, (req, res, ctx) => {
-		const q = req.url.searchParams.get("q")
-		const per_page = req.url.searchParams.get("per_page")
-		const page = req.url.searchParams.get("page")
-		ctx.delay(1500)
 
-		if (q === searchText && page == 1 && per_page == 10) {
-
-			return res(ctx.json(luckyFirstPage))
-		}
-
-		if (q === searchText && page == 2 && per_page == 10) {
-			return res(ctx.json(luckySecondPage))
-		}
-
-		return res(ctx.status(500))
-	}),
-)
 
 
 const createVuexStore = (newState = null) => createStore({
@@ -64,6 +47,29 @@ const createVuexStore = (newState = null) => createStore({
 
 
 describe('test app search/navigation', () => {
+
+
+	const server = setupServer(
+		rest.get(url, (req, res, ctx) => {
+			const q = req.url.searchParams.get("q")
+			const per_page = req.url.searchParams.get("per_page")
+			const page = req.url.searchParams.get("page")
+			ctx.delay(1500)
+	
+	
+			if (q === searchText && page == 1 && per_page == 10) {
+	
+				return res(ctx.json(luckyFirstPage))
+			}
+	
+			if (q === searchText && page == 2 && per_page == 10) {
+				return res(ctx.json(luckySecondPage))
+			}
+	
+			return res(ctx.status(500))
+		}),
+	)
+
 	beforeEach(async () => {
 		router.push("/users")
 		await router.isReady()
@@ -112,7 +118,6 @@ describe('test app search/navigation', () => {
 		}
 
 		const {
-			getByRole,
 			getAllByTestId,
 			container
 		} = render(App, {
@@ -128,8 +133,34 @@ describe('test app search/navigation', () => {
 
 		await waitFor(() => {
 			expect(getAllByTestId("table-row")).toHaveLength(2)
-
 		})
 	})
 
+	it("recieves error showing no items text", async () => {
+
+			const {
+				getByTestId,
+				getByPlaceholderText,
+				getByText,
+		
+			} = render(App, {
+				global: {
+					plugins: [createVuexStore(), router]
+				}
+			})
+
+		
+			await fireEvent.update(getByPlaceholderText("Введите логин пользователя"), "wrong_text")
+			await fireEvent.click(getByText("Найти"))	
+
+
+
+		await waitFor(() => {
+			expect(getByTestId("error-row")).toBeInTheDocument()
+		})
+
+
+
+
+})
 })
