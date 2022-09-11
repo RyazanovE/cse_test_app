@@ -15,11 +15,12 @@ const {
 
 module.exports = {
 	mode: 'development',
-	entry: ['./src/index.js'],
+	entry: ['core-js/stable', './src/index.js'],
 	output: {
 		filename: "[name].[contenthash:8].js",
 		chunkFilename: "[name].[contenthash:8].js",
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		 publicPath: ''
 	},
 	resolve: {
 		alias: {
@@ -28,15 +29,13 @@ module.exports = {
 			'@': path.join(__dirname, 'src')
 		}
 	},
+	
 	module: {
 		rules: [{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
-					options: {
-						presets: ['@babel/preset-env']
-					}
 				},
 			},
 			{
@@ -94,6 +93,7 @@ module.exports = {
 		compress: true,
 		port: 8080
 	},
+	devtool: 'eval-source-map',
 	optimization: {
 		moduleIds: "deterministic",
 		runtimeChunk: "single",

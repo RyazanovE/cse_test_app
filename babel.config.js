@@ -1,22 +1,11 @@
-module.exports = function (api) {
-	api.cache(false);
-	const config = {
-		"presets": [
-			["@babel/env", {
-				"targets": {
-					"browsers": [
-						"last 4 versions",
-						"IE 11",
-						'Chrome >= 49',
-						'Firefox >= 45',
-						'Safari >= 10',
-						'Edge >= 13',
-						'iOS >= 10',
-						'Electron >= 0.36'
-					]
+module.exports = {
+		presets: [
+			["@babel/preset-env",
+				{
+					"useBuiltIns": "usage",
+					"corejs": 3
 				}
-			}],
-			// "@babel/stage-0"
+			],
 		],
 		plugins: [
 			"@babel/plugin-transform-classes",
@@ -26,8 +15,13 @@ module.exports = function (api) {
 			"@babel/plugin-transform-arrow-functions",
 			"@babel/plugin-transform-template-literals",
 			"@babel/plugin-transform-computed-properties",
-			"@babel/plugin-transform-shorthand-properties"
+			"@babel/plugin-transform-shorthand-properties",
+			"@babel/plugin-transform-for-of",
+			"babel-plugin-loop-optimizer",
+			["@babel/plugin-proposal-decorators",{"decoratorsBeforeExport":true}],
+			"@babel/plugin-proposal-class-properties",
+			"@babel/transform-runtime",
 		],
-	};
-	return config;
+
+
 };
