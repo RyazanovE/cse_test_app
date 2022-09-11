@@ -20,7 +20,7 @@ const createVuexStore = (users) =>
 	})
 
 
-describe('Actions.vue', () => {
+describe('users table test', () => {
 	it("has 5 users to be shown", async () => {
 		const options = {
 			data: fiveUsersData,
