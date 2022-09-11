@@ -1,7 +1,6 @@
 import {
 	mount,
 	shallowMount,
-	flushPromises
 } from '@vue/test-utils'
 import UsersTable from "./UsersTable.vue"
 import {
@@ -19,6 +18,8 @@ const createVuexStore = (users) =>
 		},
 		actions, mutations
 	})
+
+
 
 
 describe('users table test', () => {
