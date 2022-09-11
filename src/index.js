@@ -1,5 +1,3 @@
-import "core-js/stable";
-
 import {
 	createApp
 } from 'vue'

@@ -15,7 +15,7 @@ const {
 
 module.exports = {
 	mode: 'development',
-	entry: ['core-js/stable', './src/index.js'],
+	entry: [ './src/index.js'],
 	output: {
 		filename: "[name].[contenthash:8].js",
 		chunkFilename: "[name].[contenthash:8].js",
@@ -93,7 +93,7 @@ module.exports = {
 		compress: true,
 		port: 8080
 	},
-	devtool: 'eval-source-map',
+	devtool: 'source-map',
 	optimization: {
 		moduleIds: "deterministic",
 		runtimeChunk: "single",
