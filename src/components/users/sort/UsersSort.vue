@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center gap-3 mr-auto" v-if="pages">
     <select
+      @change="sortChangeHandler"
       v-model="sort"
       class="cursor-pointer outline-none border-orange border-2 px-2 rounded-md"
     >
@@ -8,7 +9,7 @@
       <option value="repositories">По репозиториям</option>
     </select>
     <swap-svg
-      @click="sortSwapClickHandler"
+      @click="orderSwapClickHandler"
       v-if="sort"
       fill="orange"
       width="20"
@@ -20,25 +21,31 @@
 </template>
 
 <script>
-import { computed, ref, watch } from "@vue/runtime-core";
+import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import SwapSvg from "../../../shared/ui/svg/swap/SwapSvg..vue";
 export default {
   components: { SwapSvg },
   setup() {
     const store = useStore();
-    const sort = ref(store.state.pagination.sort);
-    const order = ref(store.state.pagination.order);
 
-    watch(([sort, order]), () => store.commit("SET_USERS_PAGINATION", { sort, order }));
+    const sort = computed(() => store.state.pagination.sort);
+    const order = computed(() => store.state.pagination.order);
+    const pages = computed(() => store.state.pagination.pages);
 
-    const sortSwapClickHandler = () => order.value = (order.value === "asc") ? "desc" : "asc"
+    const sortChangeHandler = (e) => store.commit("SET_USERS_PAGINATION", { sort: e.target.value })
+
+    const orderSwapClickHandler = () => {
+      const newOrder = order.value === "asc" ? "desc" : "asc"
+      store.commit("SET_USERS_PAGINATION", {  order: newOrder })
+    }
 
 
     return {
-      sortSwapClickHandler,
+      sortChangeHandler,
+      orderSwapClickHandler,
       sort,
-      pages: computed(() => store.state.pagination.pages),
+      pages,
     };
   },
 };
