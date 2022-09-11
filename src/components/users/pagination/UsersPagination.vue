@@ -12,22 +12,24 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref } from "@vue/reactivity";
+import { computed } from "@vue/reactivity";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
   components: { VPagination },
-  setup(props, {}) {
+  setup() {
     const store = useStore();
-    const page = ref(store.state.pagination.page);
+    
+    const pages = computed(() => store.state.pagination.pages)
+    const page = computed(() => store.state.pagination.page);
 
-    const paginationHandler = (e) => store.commit("SET_USERS_PAGINATION", { page: e });
+    const paginationHandler = (page) => store.commit("SET_USERS_PAGINATION", { page });
 
     return {
       paginationHandler,
       page,
-      pages: computed(() => store.state.pagination.pages),
+      pages
     };
   },
 };

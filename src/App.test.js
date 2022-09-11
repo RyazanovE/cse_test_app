@@ -2,8 +2,6 @@ import {
 	render,
 	fireEvent,
 	waitFor,
-
-
 } from '@testing-library/vue'
 import '@testing-library/jest-dom'
 import {
@@ -32,22 +30,15 @@ const url = "https://api.github.com/search/users"
 const searchText = "lucky7777"
 
 
-
-
 const createVuexStore = (newState = null) => createStore({
-
 		mutations,
 		actions,
 		state: newState ?? store.state
 	},
-
 )
 
 
-
-
 describe('test app search/navigation', () => {
-
 
 	const server = setupServer(
 		rest.get(url, (req, res, ctx) => {
@@ -56,16 +47,10 @@ describe('test app search/navigation', () => {
 			const page = req.url.searchParams.get("page")
 			ctx.delay(1500)
 	
-	
-			if (q === searchText && page == 1 && per_page == 10) {
-	
-				return res(ctx.json(luckyFirstPage))
-			}
-	
-			if (q === searchText && page == 2 && per_page == 10) {
-				return res(ctx.json(luckySecondPage))
-			}
-	
+			if (q === searchText && page == 1 && per_page == 10) return res(ctx.json(luckyFirstPage))
+			
+			if (q === searchText && page == 2 && per_page == 10) return res(ctx.json(luckySecondPage))
+			
 			return res(ctx.status(500))
 		}),
 	)
@@ -149,18 +134,11 @@ describe('test app search/navigation', () => {
 				}
 			})
 
-		
 			await fireEvent.update(getByPlaceholderText("Введите логин пользователя"), "wrong_text")
 			await fireEvent.click(getByText("Найти"))	
-
-
 
 		await waitFor(() => {
 			expect(getByTestId("error-row")).toBeInTheDocument()
 		})
-
-
-
-
 })
 })

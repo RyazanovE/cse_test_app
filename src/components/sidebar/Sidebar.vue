@@ -10,7 +10,6 @@ import LinksList from "./links-list/LinksList.vue";
 
 
 export default {
-
   components: { LinksList },
 };
 </script>

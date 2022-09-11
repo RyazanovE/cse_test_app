@@ -9,10 +9,9 @@
 <script>
 import { USERS_ROUTE } from "../../../mocks/routes/routes";
 export default {
-  setup(props, ctx) {
+  setup() {
     const navLinks = [{ label: "Пользователи", path: USERS_ROUTE }];
-   
-	
+
 	return {
       navLinks,
     };
@@ -28,16 +27,9 @@ export default {
     content: "";
     @apply left-0 top-0 right-0 bottom-0 my-auto -z-10 absolute bg-orange  w-0;
   }
-
-
 }
 
 .router-link-active {
   @apply md:bg-white/10 bg-black/20;
 }
-
-
-
-
-
 </style>

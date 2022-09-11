@@ -1,6 +1,6 @@
 <template>
   <section class="p-6">
-    <div class="flex items-center justify-between border-orange border-2 p-6 rounded-md">
+    <div class="flex items-center justify-between border-orange border-2 p-6 rounded-md min-h-[180px]">
       <template v-if="!isLoading">
         <ul class="flex flex-col gap-6">
           <li class="font-semibold flex gap-3 items-center">
