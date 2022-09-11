@@ -10,13 +10,14 @@ import {
 import {
 	fiveUsersData,
 } from "@/tests/unit/users/mocks/usersData.js"
-
+import { actions, mutations } from '@/store'
 
 const createVuexStore = (users) =>
 	createStore({
 		state: {
 			users
-		}
+		},
+		actions, mutations
 	})
 
 

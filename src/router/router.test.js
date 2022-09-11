@@ -7,10 +7,6 @@ import {
 	render,
 	fireEvent
 } from '@testing-library/vue'
-import {
-	createRouter,
-	createWebHistory
-} from 'vue-router'
 import store from "@/store"
 import App from "@/App.vue"
 import {
@@ -19,9 +15,12 @@ import {
 import {
 	createStore
 } from 'vuex'
-import UsersPage from '@/pages/users/UsersPage.vue'
-import UserPage from '@/pages/users/id/UserPage.vue'
 import router from '@/router'
+import {
+	mutations,
+	actions
+} from '../store'
+
 
 const createVuexStore = (users) => createStore({
 	state: {
@@ -35,6 +34,9 @@ const createVuexStore = (users) => createStore({
 			pages: 0,
 		},
 	},
+	actions,
+	mutations
+
 
 })
 
@@ -96,7 +98,7 @@ describe("router tests", () => {
 			isError: false,
 		}
 		const {
-	
+
 			getByText
 		} = render(App, {
 			global: {
